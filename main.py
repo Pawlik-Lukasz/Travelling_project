@@ -1,14 +1,13 @@
 import datetime
-import data_manager
-import flight_search
-import notification_manager
+from data_manager import DataManager
+from flight_search import FlightSearch
+from notification_manager import NotificationManager
 from flight_data import dictionary_flight_data
 
-manager = data_manager.DataManager()
+manager = DataManager()
 sheet_data = manager.get_data()
-Iata_Code_Response = flight_search.FlightSearch()
-Flight_Search = flight_search.FlightSearch()
-Sms_Sender = notification_manager.NotificationManager()
+Flight_Search = FlightSearch()
+Sms_Sender = NotificationManager()
 
 for line in sheet_data:
     # search cheap flights via flight_search
@@ -24,5 +23,3 @@ for line in sheet_data:
                             connection["cityCodeFrom"], connection['cityTo'], connection["cityCodeTo"],
                             datetime.datetime.fromtimestamp(connection["route"][0]["dTime"]).strftime("%d-%m-%Y"),
                             datetime.datetime.fromtimestamp(connection["route"][1]["dTime"]).strftime("%d-%m-%Y"))
-        print(f"{connection['cityTo']}:{connection['price']}")
-        print(connection)
