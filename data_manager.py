@@ -12,10 +12,11 @@ class DataManager:
     def __init__(self):
         self.sheety_data = {}
         self.sheety_API = os.getenv('SHEETY_API')
+        self.sheety_AUTH = os.getenv('SHEETY_AUTH')
 
     def get_data(self):
         headers = {
-            "Authorization": "Bearer iaywvdiajsdoia"
+            "Authorization": "Bearer " + self.sheety_AUTH
         }
         sheety_response = requests.get(url=self.sheety_API, headers=headers)
 
@@ -26,7 +27,7 @@ class DataManager:
         for line in self.sheety_data:
             id = line["id"]
             headers = {
-                "Authorization": "Bearer iaywvdiajsdoia"
+                "Authorization": "Bearer " + self.sheety_AUTH
             }
             body = {
                 "flightProject": {
