@@ -1,6 +1,10 @@
 # Flight Notification System
 
-This repository contains a set of Python scripts for managing flight notifications, searching for flights, and managing flight data. These scripts are designed to work together to provide a comprehensive flight notification system.
+This repository contains a set of Python scripts for managing flight notifications, searching for flights, and managing 
+flight data.
+
+With this code You can send text message via Twilio to you client that will inform
+him/her about flights that are cheaper than inputted values in google sheets.
 
 ## Requirements
 
