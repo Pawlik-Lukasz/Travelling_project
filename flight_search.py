@@ -1,5 +1,4 @@
 import requests
-import flight_data
 import os
 from dotenv import find_dotenv
 
